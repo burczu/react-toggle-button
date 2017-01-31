@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import './ToggleButtonComponent.scss';
 
 class ToggleButtonComponent extends React.Component {
+  static propTypes = {
+    onToggleChange: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
-    this.state = { toggleOn: true }
+    this.state = { toggleOn: false }
   }
 
   onToggleClick() {
+    const newToggleState = !this.state.toggleOn;
     this.setState({
-      toggleOn: !this.state.toggleOn
+      toggleOn: newToggleState
     });
+
+    if (this.props.onToggleChange) {
+      this.props.onToggleChange(newToggleState);
+    }
   }
 
   render() {

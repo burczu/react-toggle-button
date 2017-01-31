@@ -3,10 +3,22 @@ import React from 'react';
 import ToggleButton from './shared/ToggleButtonComponent';
 
 class AppComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { toggleState: 'off' }
+  }
+
+  onToggleChange(toggleOn) {
+    this.setState({
+      toggleState: toggleOn ? 'on' : 'off'
+    })
+  }
+
   render() {
     return (
       <div className="index">
-        <ToggleButton />
+        <ToggleButton onToggleChange={this.onToggleChange.bind(this)} />
+        <p>Toggle: {this.state.toggleState}</p>
       </div>
     );
   }
