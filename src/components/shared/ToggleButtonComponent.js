@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import './ToggleButtonComponent.scss';
+
 class ToggleButtonComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { toggleOn: false }
+    this.state = { toggleOn: true }
   }
 
   onToggleClick() {
@@ -20,7 +22,7 @@ class ToggleButtonComponent extends React.Component {
     });
 
     return (
-      <a className={toggleClass} onClick={this.onToggleClick.bind(this)}>
+      <a className={`toggle-button ${toggleClass}`} href="#" onClick={this.onToggleClick.bind(this)}>
         <div></div>
       </a>
     );
