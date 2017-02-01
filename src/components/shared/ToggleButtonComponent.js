@@ -3,17 +3,19 @@ import classNames from 'classnames';
 
 import './ToggleButtonComponent.scss';
 
-class ToggleButtonComponent extends React.Component {
+export default class ToggleButtonComponent extends React.Component {
   static propTypes = {
     onToggleChange: PropTypes.func
   };
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { toggleOn: false }
   }
 
-  onToggleClick() {
+  onToggleClick(event) {
+    event.preventDefault();
+
     const newToggleState = !this.state.toggleOn;
     this.setState({
       toggleOn: newToggleState
@@ -37,5 +39,3 @@ class ToggleButtonComponent extends React.Component {
     );
   }
 }
-
-export default ToggleButtonComponent;
