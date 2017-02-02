@@ -3,8 +3,8 @@ import React from 'react';
 import ToggleButton from './shared/ToggleButtonComponent';
 
 class AppComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { toggleState: 'off' }
   }
 

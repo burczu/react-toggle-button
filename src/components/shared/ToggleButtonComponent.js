@@ -16,13 +16,12 @@ export default class ToggleButtonComponent extends React.Component {
   onToggleClick(event) {
     event.preventDefault();
 
-    const newToggleState = !this.state.toggleOn;
     this.setState({
-      toggleOn: newToggleState
+      toggleOn: !this.state.toggleOn
     });
 
     if (this.props.onToggleChange) {
-      this.props.onToggleChange(newToggleState);
+      this.props.onToggleChange(!this.state.toggleOn);
     }
   }
 
